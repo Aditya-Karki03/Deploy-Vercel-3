@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    font-family: 'ubuntu';
+    background-color: #393636;
+}
+.big-container{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+}
+button, .pop-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+button{
+    width: 120px;
+    height: 50px;
+    font-weight: 560;
+    background-color: #000;
+    color: #fff;
+    border-radius: 0.5rem;
+    font-size: 15px;
+    border: 1px solid #000;
+}
+.pop-container{
+    /* border: 1px solid red; */
+    width: 400px;
+    height: 200px;
+    padding: 20px 20px;
+    border-radius: 15px;
+    color: #fff;
+    background-color: #393636;
+    visibility: hidden;
+}
+.pop-container p{
+    color: darkgray;
+}
+body.closed .pop-container{
+    opacity: 0;
+    visibility: hidden;
+}
+body.open .pop-container{
+    opacity: 1;
+    visibility: visible;
+    animation: make-pop-up-visible 1s;
+}
+body.closed .pop-up-background{
+    opacity: 0;
+    visibility: hidden;
+}
+body.open .pop-up-background{
+    opacity: 1;
+    visibility: visible;
+    animation: background-maker 0.5s;
+}
+.pop-up-background{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(0,0,0,0.5);
+    visibility: hidden;
+    /* animation: background-maker 5s; */
+}
+@keyframes background-maker {
+    0%{
+        transform: scale(0,0.0005);
+    }
+    33%,66%{
+        transform: scale(1,0.0005);
+    }
+    100%{
+        transform: scale(1,1);
+    }
+}
+@keyframes make-pop-up-visible{
+    0%,66%{
+        opacity: 0;
+        visibility: hidden;
+    }
+    100%{
+        opacity: 1;
+        visibility: visible;
+    }
+}
